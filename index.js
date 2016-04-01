@@ -2,7 +2,7 @@ var moment = require('moment');
 var match = require('multimatch');
 
 
-module.exports = function(options){
+module.exports = exports = function(options){
   var cycle = '86DC0A16';
   var defaults = {
     pattern: ['**/*.md'],
