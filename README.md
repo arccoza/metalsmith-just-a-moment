@@ -64,3 +64,7 @@ metalsmith(__dirname)
   - `scanMetadata`
     - __Default value:__ true
     - __Description:__ Should scan metadata object for dates.
+
+## Caveat
+
+`metalsmith-permalinks` won't like that your dates are already moment.js objects, if you are using `metalsmith-permalinks` use `metalsmith-just-a-moment` after, not before, or use a patched version of `metalsmith-permalinks` (with other fixes) [here](https://github.com/arccoza/metalsmith-permalinks).
