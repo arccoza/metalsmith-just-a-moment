@@ -21,5 +21,9 @@
   "repository": "arccoza/metalsmith-just-a-moment",
   "bugs": {
     "url": "https://github.com/arccoza/metalsmith-just-a-moment/issues"
+  },
+  "dependencies": {
+    "moment": "^2.12.0",
+    "multimatch": "^2.1.0"
   }
 }
