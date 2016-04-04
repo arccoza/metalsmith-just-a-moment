@@ -29,7 +29,7 @@ Build script example:
 ```js
 var metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
-var justAMoment = require(metalsmith-just-a-moment);
+var justAMoment = require('metalsmith-just-a-moment');
 
 
 metalsmith(__dirname)
