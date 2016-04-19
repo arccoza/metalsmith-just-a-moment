@@ -7,7 +7,8 @@ module.exports = exports = function(options){
   var defaults = {
     pattern: ['**/*.md'],
     scanFiles: true,
-    scanMetadata: true
+    scanMetadata: true,
+    asUTC: false
   }
   options = options ? Object.assign(defaults, options) : defaults;
   options.pattern = Array.isArray(options.pattern) ? options.pattern : [options.pattern];
@@ -28,7 +29,10 @@ module.exports = exports = function(options){
     else if(obj instanceof Date) {
       // console.log('-- value --');
       // console.log(obj);
-      m = moment(obj);
+      if(options.asUTC)
+        m = moment.utc(obj);
+      else
+        m = moment(obj);
       // return m.isValid() ? m : obj;
       return m;
     }
