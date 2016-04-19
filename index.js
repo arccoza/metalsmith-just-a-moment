@@ -3,7 +3,7 @@ var match = require('multimatch');
 
 
 module.exports = exports = function(options){
-  var cycle = '86DC0A16';
+  var visited = new Map();
   var defaults = {
     pattern: ['**/*.md'],
     scanFiles: true,
@@ -16,8 +16,8 @@ module.exports = exports = function(options){
     var self = recur;
     var m = null;
 
-    if(Array.isArray(obj) && obj.___cycle != cycle) {
-      obj.___cycle = cycle;
+    if(Array.isArray(obj) && !visited.has(obj)) {
+      visited.set(obj, true);
       // console.log('-- array --');
       for(var i = 0, v; v = obj[i++];) {
         // console.log('----------------------', i - 1, v);
@@ -35,8 +35,8 @@ module.exports = exports = function(options){
     else if(moment.isMoment(obj)) {
       return obj;
     }
-    else if(obj && typeof obj === 'object' && obj.___cycle != cycle && !(obj instanceof Buffer || obj instanceof ArrayBuffer)) {
-      obj.___cycle = cycle;
+    else if(obj && typeof obj === 'object' && !visited.has(obj) && !(obj instanceof Buffer || obj instanceof ArrayBuffer)) {
+      visited.set(obj, true);
       // console.log('-- object --');
       for(k in obj) {
         if(obj.hasOwnProperty(k)) {
