@@ -64,6 +64,9 @@ metalsmith(__dirname)
   - `scanMetadata`
     - __Default value:__ true
     - __Description:__ Should scan metadata object for dates.
+  - `asUTC`
+    - __Default value:__ false
+    - __Description:__ Parse dates as UTC. If your date has a timezone it will be subtracted to get UTC, otherwise your date will be assumed to be UTC.
 
 ## Caveat
 
